@@ -1,24 +1,24 @@
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askopenfilename #import askfileopen from tkinter module to open csv file
 import tkinter
 
-stre="emails.csv"
-searchkeywords=""
+stre="emails.csv" #store the default csv file name
+searchkeywords="" #initialise searchkeywords to store keywords
 
-def open1():
+def open1():       #define method to execute on clicking upload button
     filename = askopenfilename()
     global stre
     print(filename)
     stre = str(filename)
     global searchkeywords
-    searchkeywords = e1.get()
+    searchkeywords = e1.get()  #get keywords from entry boxx
     print(searchkeywords)
 
-def quit(self):
+def quit(self):     #define method for closing window
 
     self.root.destroy()
 
 
-def open2():
+def open2():      #define method for opening default csv file
     global searchkeywords
     searchkeywords = e1.get()
     print(searchkeywords)
@@ -26,7 +26,7 @@ def open2():
 
 
 
-top = tkinter.Tk()
+top = tkinter.Tk()        #create a new gui window
 E=tkinter.Label(top,text="enter the keywords seperated by commas:eg(python,opencv,code)->")
 B = tkinter.Button(top, text ="SUBMIT ", command = top.quit)
 C = tkinter.Button(top, text ="UPLOAD", command = open1)
@@ -46,13 +46,13 @@ e1.insert(0, "Python")
 e1.grid(row=4,column=1,columnspan=28)
 top.mainloop()
 
-import csv
-import time
+import csv   #import csv module for reading csv files
+import time   #import time  module for dealing with data parameters
 from time import mktime
 from datetime import datetime
 
 
-def parse(text):
+def parse(text):                    #method for parsing dateformat
     for fmt in ('%Y-%m-%d', '%d/%m/%y',''):
         try:
             return datetime.strptime(text, fmt)
@@ -68,7 +68,7 @@ fields = []
 rows = []
 
 
-with open(filename, 'r') as csvfile:
+with open(filename, 'r') as csvfile:   #open csv file
 
     csvreader = csv.reader(csvfile)
 
@@ -88,7 +88,7 @@ listdate=[]
 listmail=[]
 listmatter=[]
 
-for row in rows[:csvreader.line_num]:
+for row in rows[:csvreader.line_num]:  #create dictionary containing email,date and content of the csv file
 
     for col in row:
         #print(col)
@@ -98,7 +98,7 @@ for row in rows[:csvreader.line_num]:
     #print('\n')
 
 
-myset=set()
+myset=set()                     #get all unique emails using set
 for i in dic:
    myset.add(str(i["name"]))
 
@@ -112,10 +112,10 @@ print("THE LAST DATE OF CONVERSATION FOR THE EMAILS ARE:\n")
 
 searcharr=searchkeywords.split(",")
 print(searcharr)
-currentdate=datetime.today().strftime('%d/%m/%y')
+currentdate=datetime.today().strftime('%d/%m/%y')   #get current date
 
 
-for i in myset:
+for i in myset:                                    #compare all date for a given email to get the latest date
     min = "20/12/01"
     maxdate = time.strptime(min, "%d/%m/%y")
     for j in range(len(dic)):
@@ -134,7 +134,7 @@ for i in myset:
 
 
     now = datetime.today()
-    delta = now - latestdateobj
+    delta = now - latestdateobj                          #calculate the number of days elapsed
     print("Days elapsed from last date: ",delta.days)
 
 
@@ -142,7 +142,7 @@ print("--------------------")
 
 print("KEYWORD SEARCH")
 flag=True
-for a in dic:
+for a in dic:                    #find if the given keywords are present in the content of the emails
 
     for b in searcharr:
         if( b in a["matter"] ):
