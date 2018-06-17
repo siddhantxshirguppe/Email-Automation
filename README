@@ -1,0 +1,21 @@
+This project  was created as a part of ExamPreparationOnline assignment 1
+Author:Siddhant Shirguppe
+ Objective:
+Read the csv file from the link:
+http://bit.ly/epo_automation_csv_file
+
+The fields are separated using '$' delimiter
+Get all the unique mail addresses from the csv
+
+Store the last date of conversation (Different date format is kept in few of the rows, avoid those rows)
+And write a function to determine how many days has elapsed from the date
+Have an array which contains values like "OpenCV", "Python",
+and write a function that would determine whether any of the words from the array is present in the content,
+if it is present then that word will be stored in another column
+
+documentation:
+
+the upload button is used to open the required csv file
+the default button opens the default emails.csv csv file bundled with the project
+the keywords is used to search for therequired keywords seperated by commas.
+submit is used to output the results foe the file on the terminal
