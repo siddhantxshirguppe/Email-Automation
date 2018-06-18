@@ -42,7 +42,7 @@ B.grid(row=2)
 D.grid(row=3 )
 E.grid(row=4,column=0)
 e1=tkinter.Entry(top)
-e1.insert(0, "Python")
+e1.insert(0, "Python,OpenCV")
 e1.grid(row=4,column=1,columnspan=28)
 top.mainloop()
 
