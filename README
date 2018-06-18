@@ -1,6 +1,7 @@
 This project  was created as a part of ExamPreparationOnline assignment 1
 Author:Siddhant Shirguppe
- Objective:
+
+Objective:
 Read the csv file from the link:
 http://bit.ly/epo_automation_csv_file
 
@@ -16,6 +17,7 @@ if it is present then that word will be stored in another column
 documentation:
 
 the upload button is used to open the required csv file
+||After opening , please click on submit,it to run it.||
 the default button opens the default emails.csv csv file bundled with the project
 the keywords is used to search for therequired keywords seperated by commas.
 submit is used to output the results foe the file on the terminal
