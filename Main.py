@@ -15,7 +15,7 @@ def open1():       #define method to execute on clicking upload button
 
 def quit(self):     #define method for closing window
 
-    self.root.destroy()
+    exit(0)
 
 
 def open2():      #define method for opening default csv file
@@ -114,7 +114,11 @@ searcharr=searchkeywords.split(",")
 print(searcharr)
 currentdate=datetime.today().strftime('%d/%m/%y')   #get current date
 
+#--------
+myData = [["UNIQUE EMAILS", "LAST DATE OF CONVERSATION", "DAYS ELAPSED"]]
 
+
+#---------
 for i in myset:                                    #compare all date for a given email to get the latest date
     min = "20/12/01"
     maxdate = time.strptime(min, "%d/%m/%y")
@@ -131,11 +135,11 @@ for i in myset:                                    #compare all date for a given
     print("--------------------")
     print("email:",i)
     print("last date of conservation: ", latestdate)
-
-
     now = datetime.today()
     delta = now - latestdateobj                          #calculate the number of days elapsed
     print("Days elapsed from last date: ",delta.days)
+    myData.append([i,latestdate,delta.days])
+
 
 
 print("--------------------")
@@ -159,6 +163,13 @@ if(flag==True):
 
 
 
+
+myFile = open('ParsedEmails.csv', 'w')
+with myFile:
+    writer = csv.writer(myFile)
+    writer.writerows(myData)
+
+print("Writing complete")
 
 
 
